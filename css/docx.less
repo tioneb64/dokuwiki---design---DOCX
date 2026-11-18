@@ -1,0 +1,165 @@
+/**
+ * Thème « docx » : apparence alignée sur les documents Word (DAT) et sur le snippet
+ * Obsidian docx-design.css. Chargé en dernier : il surcharge le template de base.
+ */
+
+@dx-navy: #1F4E79;
+@dx-blue: #2E74B5;
+@dx-link: #0563C1;
+@dx-text: #1a1a1a;
+@dx-h3: #333333;
+@dx-muted: #5A6B7B;
+@dx-border: #B7C2CE;
+@dx-label: #EEF1F4;
+@dx-code: #F4F6F8;
+@dx-callout: #E8F1FA;
+@dx-font: Calibri, "Segoe UI", sans-serif;
+@dx-mono: Consolas, "Cascadia Mono", "Courier New", monospace;
+
+body, .dokuwiki, .dokuwiki input, .dokuwiki select, .dokuwiki textarea, .dokuwiki button {
+    font-family: @dx-font;
+}
+.dokuwiki { color: @dx-text; line-height: 1.5; }
+.dokuwiki div.page { font-size: 15px; }
+
+/* ---------- En-tête ---------- */
+#dokuwiki__header { background: @dx-navy; border-bottom: 0; }
+#dokuwiki__header .headings h1,
+#dokuwiki__header .headings h1 a,
+#dokuwiki__header .headings h1 a:visited { color: #fff; font-family: @dx-font; font-weight: 700; border: 0; }
+#dokuwiki__header .headings h2 { color: #cfe0f1; }
+#dokuwiki__header #dokuwiki__usertools a,
+#dokuwiki__header #dokuwiki__sitetools a { color: #fff; }
+#dokuwiki__header { color: #fff; }
+#dokuwiki__header #dokuwiki__usertools li,
+#dokuwiki__header #dokuwiki__usertools li.user,
+#dokuwiki__header #dokuwiki__usertools li.user bdi,
+#dokuwiki__header #dokuwiki__sitetools li { color: #fff; }
+#dokuwiki__header #dokuwiki__usertools a,
+#dokuwiki__header #dokuwiki__usertools a:visited,
+#dokuwiki__header #dokuwiki__sitetools a,
+#dokuwiki__header #dokuwiki__sitetools a:visited,
+#dokuwiki__header .breadcrumbs a,
+#dokuwiki__header .breadcrumbs a:visited { color: #fff; }
+#dokuwiki__header #dokuwiki__usertools a:hover,
+#dokuwiki__header #dokuwiki__sitetools a:hover,
+#dokuwiki__header .breadcrumbs a:hover { color: #cfe0f1; text-decoration: underline; }
+#dokuwiki__header #dokuwiki__usertools li.action a svg { fill: #fff; }
+#dokuwiki__header #dokuwiki__usertools li.action a:hover svg { fill: #cfe0f1; }
+#dokuwiki__header div.breadcrumbs,
+#dokuwiki__header div.breadcrumbs div { color: #cfe0f1; border-color: rgba(255,255,255,.25); }
+#dokuwiki__header div.breadcrumbs .bchead,
+#dokuwiki__header div.breadcrumbs .bcsep { color: #cfe0f1; }
+#dokuwiki__header div.breadcrumbs .curid a { font-weight: 700; }
+
+/* ---------- Titres ---------- */
+.dokuwiki h1, .dokuwiki h2, .dokuwiki h3, .dokuwiki h4, .dokuwiki h5, .dokuwiki h6 {
+    font-family: @dx-font;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: @dx-navy;
+}
+.dokuwiki .page h1 { font-size: 1.75em; border-bottom: 1px solid @dx-navy; padding-bottom: 4px; margin: 1.1em 0 .5em; }
+.dokuwiki .page h2 { font-size: 1.45em; margin: .9em 0 .35em; border-bottom: 0; }
+.dokuwiki .page h3 { font-size: 1.25em; color: @dx-h3; margin: .8em 0 .3em; }
+.dokuwiki .page h4 { font-size: 1.1em; color: @dx-blue; font-style: italic; margin: .7em 0 .25em; }
+.dokuwiki .page h5 { font-size: 1em; color: @dx-blue; }
+.dokuwiki .page h6 { font-size: 1em; color: @dx-navy; }
+.dokuwiki .page h2, .dokuwiki .page h3, .dokuwiki .page h4, .dokuwiki .page h5, .dokuwiki .page h6 { margin-left: 0; }
+
+/* ---------- Liens ---------- */
+.dokuwiki a { color: @dx-link; }
+.dokuwiki a:hover, .dokuwiki a:focus { color: @dx-navy; }
+.dokuwiki a.wikilink2 { color: #B3261E; }
+.dokuwiki .page ul > li::marker, .dokuwiki .page ol > li::marker { color: @dx-navy; }
+
+/* ---------- Tableaux ---------- */
+.dokuwiki table.inline {
+    border-collapse: collapse;
+    border: 1px solid @dx-border;
+    font-size: 13px;
+    min-width: 0;
+}
+.dokuwiki table.inline th,
+.dokuwiki table.inline td {
+    border: 1px solid @dx-border;
+    padding: 4px 7px;
+    vertical-align: top;
+}
+.dokuwiki table.inline th {
+    background: @dx-navy;
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+}
+.dokuwiki table.inline tbody td:first-child { background: @dx-label; font-weight: 700; }
+.dokuwiki table.inline tr:hover td, .dokuwiki table.inline tr:hover th { background-color: inherit; }
+.dokuwiki table.inline tbody tr:hover td:first-child { background: @dx-label; }
+.dokuwiki table.inline tr:nth-child(even) td:not(:first-child) { background: transparent; }
+
+/* ---------- Code ---------- */
+.dokuwiki code, .dokuwiki samp, .dokuwiki kbd {
+    font-family: @dx-mono;
+    background: @dx-code;
+    color: @dx-navy;
+    border-radius: 2px;
+    padding: 0 3px;
+    font-size: .92em;
+}
+.dokuwiki pre, .dokuwiki pre.code, .dokuwiki pre.file {
+    font-family: @dx-mono;
+    font-size: 12.5px;
+    background: @dx-code;
+    color: @dx-text;
+    border: 1px solid @dx-border;
+    border-left: 3px solid @dx-navy;
+    border-radius: 0;
+    padding: 8px 10px;
+}
+.dokuwiki pre code { background: transparent; padding: 0; color: inherit; font-size: inherit; }
+.dokuwiki dl.file dt, .dokuwiki dl.code dt { background: @dx-navy; border-color: @dx-navy; color: #fff; }
+.dokuwiki dl.file dt a, .dokuwiki dl.code dt a { color: #fff; }
+
+/* ---------- Citations ---------- */
+.dokuwiki blockquote {
+    border: 0;
+    border-left: 3px solid @dx-border;
+    color: @dx-muted;
+    font-style: italic;
+    margin: .6em 0;
+    padding: 2px 0 2px 14px;
+}
+.dokuwiki blockquote > div.no { margin: 0; }
+
+/* ---------- Encadrés (> [!type] Titre, transformés par script.js) ---------- */
+.dokuwiki blockquote.dx-callout {
+    font-style: normal;
+    color: @dx-text;
+    background: @dx-callout;
+    border-left: 4px solid @dx-navy;
+    padding: 6px 12px 8px;
+}
+.dokuwiki blockquote.dx-callout .dx-callout-title { display: block; color: @dx-navy; font-weight: 700; margin-bottom: 2px; }
+.dokuwiki blockquote.dx-callout p { margin: .3em 0; }
+.dokuwiki blockquote.dx-warning, .dokuwiki blockquote.dx-caution, .dokuwiki blockquote.dx-attention { background: #FFF4E0; border-left-color: #C77700; }
+.dokuwiki blockquote.dx-warning .dx-callout-title, .dokuwiki blockquote.dx-caution .dx-callout-title, .dokuwiki blockquote.dx-attention .dx-callout-title { color: #8a5200; }
+.dokuwiki blockquote.dx-danger, .dokuwiki blockquote.dx-failure, .dokuwiki blockquote.dx-bug, .dokuwiki blockquote.dx-error { background: #FBE9E9; border-left-color: #B3261E; }
+.dokuwiki blockquote.dx-danger .dx-callout-title, .dokuwiki blockquote.dx-failure .dx-callout-title, .dokuwiki blockquote.dx-bug .dx-callout-title, .dokuwiki blockquote.dx-error .dx-callout-title { color: #8c1c16; }
+.dokuwiki blockquote.dx-success, .dokuwiki blockquote.dx-check, .dokuwiki blockquote.dx-done { background: #E8F4EA; border-left-color: #2E7D32; }
+.dokuwiki blockquote.dx-success .dx-callout-title, .dokuwiki blockquote.dx-check .dx-callout-title, .dokuwiki blockquote.dx-done .dx-callout-title { color: #1f5c23; }
+.dokuwiki blockquote.dx-quote, .dokuwiki blockquote.dx-cite { background: @dx-code; border-left-color: @dx-border; }
+.dokuwiki blockquote.dx-quote .dx-callout-title, .dokuwiki blockquote.dx-cite .dx-callout-title { color: @dx-muted; }
+
+/* ---------- Divers ---------- */
+.dokuwiki hr { border: 0; border-top: 1px solid @dx-border; }
+.dokuwiki div.footnotes, .dokuwiki .fn { color: @dx-muted; font-size: 12px; }
+.dokuwiki #dw__toc, .dokuwiki div.toc { border: 1px solid @dx-border; border-left: 4px solid @dx-navy; background: @dx-callout; }
+.dokuwiki #dw__toc h3 { color: @dx-navy; background: transparent; }
+.dokuwiki .plugin_kroki { max-width: 100%; }
+
+#dokuwiki__aside h1, #dokuwiki__aside h2, #dokuwiki__aside h3 { border: 0; font-size: 1.1em; }
+#dokuwiki__footer .pad { color: @dx-muted; border-top: 1px solid @dx-border; }
+.dokuwiki button, .dokuwiki input[type=submit], .dokuwiki input[type=button] {
+    background: @dx-navy; color: #fff; border: 1px solid @dx-navy; border-radius: 2px;
+}
+.dokuwiki button:hover, .dokuwiki input[type=submit]:hover { background: @dx-blue; border-color: @dx-blue; }
