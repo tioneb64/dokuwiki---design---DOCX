@@ -92,6 +92,7 @@ jQuery(function(){
  * Theme docx : transforme les citations "> [!type] Titre" (syntaxe Obsidian)
  * en encadres facon Word, comme le snippet docx-design.css.
  */
+var ALIAS = {"note": "note", "info": "info", "todo": "todo", "abstract": "abstract", "summary": "abstract", "tldr": "abstract", "tip": "tip", "hint": "tip", "important": "important", "success": "success", "check": "success", "done": "success", "question": "question", "help": "question", "faq": "question", "warning": "warning", "caution": "warning", "attention": "warning", "failure": "danger", "fail": "danger", "missing": "danger", "danger": "danger", "error": "danger", "bug": "bug", "example": "example", "quote": "quote", "cite": "quote", "decision": "decision", "theorem": "theorem", "tabbed": "note"};
 jQuery(function () {
     jQuery('.dokuwiki .page blockquote').each(function () {
         var $bq = jQuery(this);
@@ -105,6 +106,6 @@ jQuery(function () {
         var title = m[2] || (type.charAt(0).toUpperCase() + type.slice(1));
         node.nodeValue = node.nodeValue.substring(m[0].length);
         $p.prepend(jQuery('<strong class="dx-callout-title"></strong>').text(title));
-        $bq.addClass('dx-callout dx-' + type);
+        $bq.addClass('dx-callout dx-' + type + ' dx-c-' + (ALIAS[type] || 'note'));
     });
 });
